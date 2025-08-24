@@ -1,0 +1,13 @@
+.weather-display-container {
+  height: 100%;
+  width: 80%;
+
+  background: linear-gradient(
+    to bottom,
+
+    #4a90e2 0%,
+    #6b5fbf 50%,
+
+    #8a2be2 100%
+  );
+}
