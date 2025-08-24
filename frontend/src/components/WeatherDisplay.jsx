@@ -4,7 +4,7 @@ import "../styles/WeatherDisplay.css";
 const WeatherDisplay = () => {
   return (
     <main className="weather-display-container">
-      <h1>WeatherDisplay</h1>
+      <h1>Weather Display</h1>
     </main>
   );
 };
