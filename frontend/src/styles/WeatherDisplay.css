@@ -10,4 +10,7 @@
 
     #8a2be2 100%
   );
+  margin: 0 !important;
+  display: flex;
+  flex-direction: column;
 }
