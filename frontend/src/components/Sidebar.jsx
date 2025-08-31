@@ -11,18 +11,6 @@ const Sidebar = () => {
 
       <div className="sidebar-menu-container">
         <SidebarItem
-          city="Malmö"
-          temperature={22}
-          weather="Sunny"
-          time="16:47"
-        />
-        <SidebarItem
-          city="Göteborg"
-          temperature={20}
-          weather="Sunny"
-          time="16:47"
-        />
-        <SidebarItem
           city="Stockholm"
           temperature={18}
           weather="Cloudy"

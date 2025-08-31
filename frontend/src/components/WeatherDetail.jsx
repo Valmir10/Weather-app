@@ -1,30 +1,43 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/WeatherDetail.css";
-import { WiRaindrop } from "react-icons/wi";
-import { WiStrongWind } from "react-icons/wi";
+import { WiRaindrop, WiStrongWind } from "react-icons/wi";
 import { IoIosSunny } from "react-icons/io";
 
 const WeatherDetail = () => {
+  const [weather, setWeather] = useState(null);
+
+  useEffect(() => {
+    fetch("http://localhost:4000/api/weather?city=Stockholm")
+      .then((res) => res.json())
+      .then((data) => setWeather(data));
+  }, []);
+
+  if (!weather) return <p>Laddar väder...</p>;
+
   return (
     <div className="weather-details-section-container">
       <div className="information-card-1-container">
         <div className="information-card-1">
           <div className="city-name-container">
-            <h1>Stockholm</h1>
+            <h1>{weather.city}</h1>
           </div>
 
           <div className="weather-type-image-container">
             <div className="weather-type-image">
-              <IoIosSunny className="weather-icon-img" />
+              <img
+                src={weather.condition_icon}
+                alt={weather.condition_text}
+                className="weather-icon-img"
+              />
             </div>
           </div>
 
           <div className="city-temperature-container">
-            <h1>18°</h1>
+            <h1>{weather.temp_c}°</h1>
           </div>
 
           <div className="type-of-weather-container">
-            <p>Sunny</p>
+            <p>{weather.condition_text}</p>
           </div>
         </div>
       </div>
@@ -39,10 +52,10 @@ const WeatherDetail = () => {
             </div>
             <div className="humidity-result-container">
               <div className="humudity-result">
-                <p>65%</p>
+                <p>{weather.humidity}%</p>
               </div>
               <div className="humitidy-text">
-                <p>Humitify</p>
+                <p>Humitidy</p>
               </div>
             </div>
           </div>
@@ -55,7 +68,7 @@ const WeatherDetail = () => {
             </div>
             <div className="wind-result-container">
               <div className="wind-result">
-                <p>10km/h</p>
+                <p>{weather.wind_kph} km/h</p>
               </div>
               <div className="wind-text">
                 <p>Wind</p>
@@ -69,10 +82,9 @@ const WeatherDetail = () => {
                 <IoIosSunny className="uv-index-icon-img" />
               </div>
             </div>
-
             <div className="uv-index-result-container">
               <div className="uv-index-result">
-                <p>5</p>
+                <p>{weather.uv}</p>
               </div>
               <div className="uv-index-text">
                 <p>UV-index</p>
