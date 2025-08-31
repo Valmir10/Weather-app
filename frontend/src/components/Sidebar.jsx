@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/Sidebar.css";
+import SidebarItem from "./SidebarItem";
 
 const Sidebar = () => {
   return (
@@ -9,43 +10,24 @@ const Sidebar = () => {
       </div>
 
       <div className="sidebar-menu-container">
-        <div className="sidebar-list-item">
-          <div className="location-name-temperature-container">
-            <div className="location-name-container">
-              <p>Malmö</p>
-            </div>
-            <div className="location-temperature-container">
-              <p>22°</p>
-            </div>
-          </div>
-          <div className="location-weather-type-time-container">
-            <div className="weather-type-container">
-              <p>Sunny</p>
-            </div>
-            <div className="time-container">
-              <p>16:47</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="sidebar-list-item">
-          <div className="location-name-temperature-container">
-            <div className="location-name-container">
-              <p>Göteborg</p>
-            </div>
-            <div className="location-temperature-container">
-              <p>20°</p>
-            </div>
-          </div>
-          <div className="location-weather-type-time-container">
-            <div className="weather-type-container">
-              <p>Sunny</p>
-            </div>
-            <div className="time-container">
-              <p>16:47</p>
-            </div>
-          </div>
-        </div>
+        <SidebarItem
+          city="Malmö"
+          temperature={22}
+          weather="Sunny"
+          time="16:47"
+        />
+        <SidebarItem
+          city="Göteborg"
+          temperature={20}
+          weather="Sunny"
+          time="16:47"
+        />
+        <SidebarItem
+          city="Stockholm"
+          temperature={18}
+          weather="Cloudy"
+          time="16:47"
+        />
       </div>
     </div>
   );
