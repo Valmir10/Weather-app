@@ -1,9 +1,19 @@
 import React from "react";
 import "../styles/Sidebar.css";
 
-const SidebarItem = ({ city, temperature, weather, time }) => {
+const SidebarItem = ({
+  city,
+  temperature,
+  weather,
+  time,
+  isActive,
+  onSelect,
+}) => {
   return (
-    <div className="sidebar-list-item">
+    <div
+      className={`sidebar-list-item ${isActive ? "active" : ""}`}
+      onClick={onSelect}
+    >
       <div className="location-name-temperature-container">
         <div className="location-name-container">
           <p>{city}</p>
@@ -12,6 +22,7 @@ const SidebarItem = ({ city, temperature, weather, time }) => {
           <p>{temperature}°</p>
         </div>
       </div>
+
       <div className="location-weather-type-time-container">
         <div className="weather-type-container">
           <p>{weather}</p>

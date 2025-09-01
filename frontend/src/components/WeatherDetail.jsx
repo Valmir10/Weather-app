@@ -3,16 +3,34 @@ import "../styles/WeatherDetail.css";
 import { WiRaindrop, WiStrongWind } from "react-icons/wi";
 import { IoIosSunny } from "react-icons/io";
 
-const WeatherDetail = () => {
+const WeatherDetail = ({ city }) => {
   const [weather, setWeather] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:4000/api/weather?city=Stockholm")
-      .then((res) => res.json())
-      .then((data) => setWeather(data));
-  }, []);
+    if (!city) return;
 
-  if (!weather) return <p>Laddar väder...</p>;
+    setLoading(true);
+    fetch(`http://localhost:4000/api/weather?city=${city}`)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("API call failed");
+        }
+        return res.json();
+      })
+      .then((data) => {
+        setWeather(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+      });
+  }, [city]);
+
+  if (error) return <p>Error: {error}</p>;
+  if (!weather) return null;
 
   return (
     <div className="weather-details-section-container">
@@ -55,7 +73,7 @@ const WeatherDetail = () => {
                 <p>{weather.humidity}%</p>
               </div>
               <div className="humitidy-text">
-                <p>Humitidy</p>
+                <p>Humidity</p>
               </div>
             </div>
           </div>

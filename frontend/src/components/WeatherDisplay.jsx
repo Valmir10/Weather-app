@@ -3,11 +3,11 @@ import "../styles/WeatherDisplay.css";
 import Header from "./Header";
 import WeatherDetail from "./WeatherDetail";
 
-const WeatherDisplay = () => {
+const WeatherDisplay = ({ onSearch, selectedCity = () => {} }) => {
   return (
     <main className="weather-display-container">
-      <Header />
-      <WeatherDetail />
+      <Header onSearch={onSearch} />
+      <WeatherDetail city={selectedCity} />
     </main>
   );
 };
