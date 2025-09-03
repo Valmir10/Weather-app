@@ -5,8 +5,15 @@ const Header = ({ onSearch }) => {
   const [input, setInput] = useState("");
 
   const handleKeyPress = (e) => {
-    if (e.key === "Enter" && input.trim() !== "") {
-      onSearch(input.trim());
+    if (e.key === "Enter") {
+      const trimmed = input.trim();
+
+      if (trimmed === "") {
+        alert("Please enter a city name.");
+        return;
+      }
+
+      onSearch(trimmed);
       setInput("");
     }
   };
