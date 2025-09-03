@@ -72,23 +72,31 @@ const HomePage = () => {
   const handleSearch = async (cityName) => {
     try {
       const res = await fetch(
-        `http://localhost:4000/api/weather?city=${cityName}`
+        `http://localhost:4000/api/weather?city=${encodeURIComponent(cityName)}`
       );
+
+      if (!res.ok) {
+        throw new Error("City not found");
+      }
+
       const data = await res.json();
+
+      if (data.error) {
+        alert("City not found. Please check the spelling.");
+        return;
+      }
 
       setFavorites((prev) => {
         const exists = prev.some(
-          (f) =>
-            f.city &&
-            data.city &&
-            f.city.toLowerCase() === data.city.toLowerCase()
+          (f) => f.city.toLowerCase() === data.city.toLowerCase()
         );
         if (exists) return prev;
         return [...prev, data];
       });
 
-      setSelectedCity(data.city || DEFAULT_CITY);
+      setSelectedCity(data.city);
     } catch (err) {
+      alert("City not found. Please check the spelling.");
       console.error("Failed to get city:", err);
     }
   };
