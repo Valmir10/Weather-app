@@ -2,8 +2,7 @@ const express = require("express");
 const axios = require("axios");
 
 const router = express.Router();
-
-const API_KEY = "aef5917062c4476f9e0191038253108";
+const API_KEY = process.env.WEATHER_API_KEY;
 
 router.get("/weather", async (req, res) => {
   const city = req.query.city || "Stockholm";
