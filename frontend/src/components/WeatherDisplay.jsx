@@ -1,10 +1,13 @@
 import React from "react";
 import "../styles/WeatherDisplay.css";
+import Header from "./Header";
+import WeatherDetail from "./WeatherDetail";
 
-const WeatherDisplay = () => {
+const WeatherDisplay = ({ onSearch, selectedCity = "Stockholm", onDelete }) => {
   return (
     <main className="weather-display-container">
-      <h1>Weather Display</h1>
+      <Header onSearch={onSearch} />
+      <WeatherDetail city={selectedCity} onDelete={onDelete} />
     </main>
   );
 };
