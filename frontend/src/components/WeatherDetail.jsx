@@ -2,21 +2,28 @@ import React, { useEffect, useState } from "react";
 import "../styles/WeatherDetail.css";
 import { WiRaindrop, WiStrongWind } from "react-icons/wi";
 import { IoIosSunny } from "react-icons/io";
+import { MdDelete } from "react-icons/md";
 
-const WeatherDetail = ({ city }) => {
+const DEFAULT_CITY = "Stockholm";
+
+const WeatherDetail = ({ city, onDelete }) => {
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (!city) return;
+    if (!city || city === "undefined") {
+      setError("No city selected");
+      setLoading(false);
+      return;
+    }
 
     setLoading(true);
+    setError(null);
+
     fetch(`http://localhost:4000/api/weather?city=${city}`)
       .then((res) => {
-        if (!res.ok) {
-          throw new Error("API call failed");
-        }
+        if (!res.ok) throw new Error("API call failed");
         return res.json();
       })
       .then((data) => {
@@ -29,6 +36,7 @@ const WeatherDetail = ({ city }) => {
       });
   }, [city]);
 
+  if (loading) return <p>Loading weather for {city}...</p>;
   if (error) return <p>Error: {error}</p>;
   if (!weather) return null;
 
@@ -36,6 +44,13 @@ const WeatherDetail = ({ city }) => {
     <div className="weather-details-section-container">
       <div className="information-card-1-container">
         <div className="information-card-1">
+          {weather.city !== DEFAULT_CITY && (
+            <MdDelete
+              className="delete-option-menu-container"
+              onClick={() => onDelete && onDelete(weather.city)}
+            />
+          )}
+
           <div className="city-name-container">
             <h1>{weather.city}</h1>
           </div>
@@ -72,6 +87,7 @@ const WeatherDetail = ({ city }) => {
               <div className="humudity-result">
                 <p>{weather.humidity}%</p>
               </div>
+
               <div className="humitidy-text">
                 <p>Humidity</p>
               </div>
@@ -94,6 +110,7 @@ const WeatherDetail = ({ city }) => {
             </div>
           </div>
 
+          {/* UV Index */}
           <div className="uv-index-container">
             <div className="uv-index-icon-container">
               <div className="uv-index-icon">

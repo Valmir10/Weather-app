@@ -22,11 +22,21 @@
 }
 
 .information-card-1 {
+  position: relative;
   height: 400px;
   width: 450px;
   display: flex;
   flex-direction: column;
   gap: 1%;
+}
+
+.delete-option-menu-container {
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  cursor: pointer;
 }
 
 .information-card-2 {

@@ -3,14 +3,26 @@ import "../styles/HomePage.css";
 import Sidebar from "../components/Sidebar";
 import WeatherDisplay from "../components/WeatherDisplay";
 
+const DEFAULT_CITY = "Stockholm";
+
 const HomePage = () => {
   const [favorites, setFavorites] = useState(() => {
     const stored = localStorage.getItem("favorites");
-    return stored ? JSON.parse(stored) : [{ city: "Stockholm" }];
+    let parsed = stored ? JSON.parse(stored) : [];
+
+    parsed = parsed.filter((f) => f && f.city);
+
+    if (
+      !parsed.some((f) => f.city?.toLowerCase() === DEFAULT_CITY.toLowerCase())
+    ) {
+      parsed.unshift({ city: DEFAULT_CITY });
+    }
+
+    return parsed;
   });
 
   const [selectedCity, setSelectedCity] = useState(() => {
-    return localStorage.getItem("selectedCity") || "Stockholm";
+    return localStorage.getItem("selectedCity") || DEFAULT_CITY;
   });
 
   const [loading, setLoading] = useState(true);
@@ -25,23 +37,33 @@ const HomePage = () => {
 
   useEffect(() => {
     Promise.all(
-      favorites.map((fav) =>
-        fetch(`http://localhost:4000/api/weather?city=${fav.city}`)
-          .then((res) => res.json())
-          .then((data) => ({
-            city: data.city,
-            temp_c: data.temp_c,
-            condition_text: data.condition_text,
-            localtime: data.localtime,
-          }))
-          .catch(() => ({
-            city: fav.city,
-            temp_c: "--",
-            condition_text: "Error",
-            localtime: "--",
-          }))
-      )
+      favorites
+        .filter((fav) => fav.city)
+        .map((fav) =>
+          fetch(`http://localhost:4000/api/weather?city=${fav.city}`)
+            .then((res) => res.json())
+            .then((data) => ({
+              city: data.city,
+              temp_c: data.temp_c,
+              condition_text: data.condition_text,
+              localtime: data.localtime,
+            }))
+            .catch(() => ({
+              city: fav.city,
+              temp_c: "--",
+              condition_text: "Error",
+              localtime: "--",
+            }))
+        )
     ).then((results) => {
+      if (!results.some((f) => f.city === DEFAULT_CITY)) {
+        results.unshift({
+          city: DEFAULT_CITY,
+          temp_c: "--",
+          condition_text: "--",
+          localtime: "--",
+        });
+      }
       setFavorites(results);
       setLoading(false);
     });
@@ -56,15 +78,29 @@ const HomePage = () => {
 
       setFavorites((prev) => {
         const exists = prev.some(
-          (f) => f.city.toLowerCase() === data.city.toLowerCase()
+          (f) =>
+            f.city &&
+            data.city &&
+            f.city.toLowerCase() === data.city.toLowerCase()
         );
         if (exists) return prev;
         return [...prev, data];
       });
 
-      setSelectedCity(data.city);
+      setSelectedCity(data.city || DEFAULT_CITY);
     } catch (err) {
       console.error("Failed to get city:", err);
+    }
+  };
+
+  const handleDelete = (city) => {
+    if (city === DEFAULT_CITY) return;
+
+    const updated = favorites.filter((f) => f.city !== city);
+    setFavorites(updated);
+
+    if (selectedCity === city) {
+      setSelectedCity(DEFAULT_CITY);
     }
   };
 
@@ -75,8 +111,11 @@ const HomePage = () => {
         onSelect={setSelectedCity}
         selectedCity={selectedCity}
       />
-
-      <WeatherDisplay onSearch={handleSearch} selectedCity={selectedCity} />
+      <WeatherDisplay
+        onSearch={handleSearch}
+        selectedCity={selectedCity}
+        onDelete={handleDelete}
+      />
     </div>
   );
 };
