@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../styles/Header.css";
+import "../styles/ResponsiveDesktop.css";
 
 const Header = ({ onSearch }) => {
   const [input, setInput] = useState("");

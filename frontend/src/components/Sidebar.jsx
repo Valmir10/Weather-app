@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/Sidebar.css";
+import "../styles/ResponsiveDesktop.css";
 import SidebarItem from "./SidebarItem";
 
 const Sidebar = ({ favorites, selectedCity, onSelect }) => {
