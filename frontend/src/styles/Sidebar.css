@@ -39,6 +39,7 @@
   margin: 0;
   background-color: rgba(255, 255, 255, 0.15);
   transition: background-color 0.3s ease;
+  cursor: pointer;
 }
 
 .sidebar-list-item:hover,

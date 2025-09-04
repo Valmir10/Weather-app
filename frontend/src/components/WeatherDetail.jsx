@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../styles/WeatherDetail.css";
+import "../styles/ResponsiveDesktop.css";
 import { WiRaindrop, WiStrongWind } from "react-icons/wi";
 import { IoIosSunny } from "react-icons/io";
 import { MdDelete } from "react-icons/md";

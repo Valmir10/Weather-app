@@ -1,0 +1,116 @@
+/*Sidebar*/
+
+@media (max-width: 1500px) {
+  .sidebar-container {
+    width: 25vw;
+  }
+}
+
+.location-name-container p {
+  font-size: 22px;
+}
+
+.location-temperature-container p {
+  font-size: 25px;
+}
+
+.header-sidebar-container h1 {
+  font-size: 30px;
+}
+
+@media (max-width: 1366px) {
+  .sidebar-container {
+    width: 28vw;
+  }
+
+  .location-name-container p {
+    font-size: 21px;
+  }
+
+  .location-temperature-container p {
+    font-size: 23px;
+  }
+
+  .header-sidebar-container h1 {
+    font-size: 27px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .sidebar-container {
+    width: 33vw;
+  }
+
+  .location-temperature-container p {
+    font-size: 21px;
+  }
+
+  .header-sidebar-container h1 {
+    font-size: 25px;
+  }
+
+  .weather-type-container p,
+  .time-container p {
+    font-size: 15px;
+  }
+
+  .sidebar-list-item {
+    height: 12%;
+  }
+}
+
+/*WeatherDetail*/
+
+@media (max-width: 1366px) {
+  .information-card-1-container {
+    height: 55%;
+  }
+
+  .information-card-2-container {
+    height: 45%;
+  }
+
+  .information-card-1 {
+    height: 390px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .information-card-1-container {
+    height: 58%;
+  }
+
+  .information-card-2-container {
+    height: 42%;
+  }
+
+  .information-card-1 {
+    height: 380px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .information-card-1-container {
+    height: 63%;
+  }
+
+  .information-card-2-container {
+    height: 37%;
+  }
+
+  .information-card-1 {
+    height: 350px;
+  }
+
+  .city-name-container h1 {
+    font-size: 29px;
+  }
+}
+
+/*Header*/
+
+@media (max-width: 1024px) {
+  .search-container {
+    height: 45px;
+  }
+}
