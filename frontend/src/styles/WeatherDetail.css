@@ -228,3 +228,16 @@
   color: white;
   display: none;
 }
+
+.keyboard-wrapper {
+  display: none;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  width: 100%;
+  background: #222;
+  z-index: 999;
+  overflow: hidden;
+  width: 100%;
+}
