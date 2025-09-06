@@ -36,6 +36,12 @@
   }
 }
 
+@media (max-width: 1280px) and (max-height: 800px) {
+  .sidebar-list-item {
+    height: 11%;
+  }
+}
+
 @media (max-width: 1200px) {
   .sidebar-container {
     width: 33vw;
@@ -72,6 +78,20 @@
 
   .information-card-1 {
     height: 390px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .information-card-1 {
+    height: 370px !important;
+  }
+
+  .information-card-1-container {
+    height: 58% !important;
+  }
+
+  .information-card-2-container {
+    height: 42% !important;
   }
 }
 

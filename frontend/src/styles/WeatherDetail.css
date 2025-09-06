@@ -3,6 +3,7 @@
 .weather-details-section-container {
   height: 90%;
   width: 100%;
+  position: relative;
 }
 
 .information-card-1-container {
@@ -207,4 +208,23 @@
   height: 60px;
   width: 60px;
   color: yellow;
+}
+
+.hamburger-menu-container {
+  position: absolute;
+  left: 15px;
+  bottom: 15px;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hamburger-menu-icon {
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  color: white;
+  display: none;
 }

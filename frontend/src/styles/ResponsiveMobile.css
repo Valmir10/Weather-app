@@ -1,0 +1,452 @@
+/*Sidebar*/
+
+@media (max-width: 900px) and (max-height: 1600px) {
+  .sidebar-container {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 70vw;
+    height: 100vh;
+    transition: left 0.3s ease-in-out;
+    z-index: 1000;
+
+    width: 38vw;
+  }
+  .sidebar-list-item {
+    height: 8%;
+  }
+
+  .sidebar-container.open {
+    left: 0;
+  }
+
+  .close-icon-container {
+    display: block !important;
+  }
+}
+
+@media (max-width: 800px) and (max-height: 1400px) {
+  .sidebar-container {
+    width: 40vw;
+  }
+}
+
+@media (max-width: 768px) and (max-height: 1280px) {
+  .sidebar-container {
+    width: 42vw;
+  }
+}
+
+@media (max-width: 720px) and (max-height: 1080px),
+  (max-width: 768px) and (max-height: 1024px) {
+  .sidebar-list-item {
+    height: 10%;
+  }
+}
+
+@media (max-width: 600px) and (max-height: 960px) {
+  .sidebar-container {
+    width: 47vw;
+  }
+}
+
+@media (max-width: 480px) and (max-height: 850px) {
+  .sidebar-container {
+    width: 55vw;
+  }
+
+  .close-icon-container {
+    height: 40px;
+    width: 40px;
+  }
+
+  .location-name-container p {
+    font-size: 19px;
+  }
+
+  .location-temperature-container p {
+    font-size: 21px;
+  }
+
+  .header-sidebar-container h1 {
+    font-size: 24px;
+  }
+
+  .time-container p {
+    font-size: 14px;
+  }
+
+  .close-icon-container {
+    position: absolute;
+    right: 7px;
+    top: 7px;
+    height: 40px;
+    width: 40px;
+  }
+}
+
+@media (max-width: 428px) and (max-height: 926px) {
+  .sidebar-container {
+    width: 60vw;
+  }
+}
+
+@media (max-width: 414px) and (max-height: 750px) {
+  .sidebar-container {
+    width: 60vw;
+  }
+}
+
+@media (max-width: 390px) and (max-height: 844px),
+  (max-width: 393px) and (max-height: 851px) {
+  .sidebar-container {
+    width: 70vw;
+  }
+
+  .sidebar-list-item {
+    height: 11% !important;
+  }
+}
+
+@media (max-width: 375px) and (max-height: 640px),
+  (max-width: 375px) and (max-height: 667px) {
+  .sidebar-container {
+    width: 70vw;
+  }
+
+  .sidebar-list-item {
+    height: 14% !important;
+  }
+}
+
+@media (max-width: 320px) and (max-height: 640px) {
+  .sidebar-container {
+    width: 80vw;
+  }
+}
+
+@media (max-width: 320px) and (max-height: 568px) {
+  .sidebar-list-item {
+    height: 16%;
+  }
+}
+
+/*WeatherDispaly */
+
+@media (max-width: 900px) and (max-height: 1600px) {
+  .weather-display-container {
+    width: 100% !important;
+  }
+
+  .weather-display-container.blurred {
+    filter: blur(4px);
+    pointer-events: none;
+    transition: filter 0.3s ease-in-out;
+  }
+}
+
+/*WeatherDetail*/
+
+@media (max-width: 900px) and (max-height: 1600px) {
+  .information-card-1-container {
+    height: 50% !important;
+  }
+
+  .information-card-2-container {
+    height: 50% !important;
+  }
+
+  .information-card-1 {
+    height: 550px;
+    width: 500px !important;
+  }
+
+  .information-card-2 {
+    height: 220px !important;
+    width: 480px !important;
+    margin-bottom: 30%;
+  }
+
+  .city-name-container h1 {
+    font-size: 35px;
+  }
+
+  .weather-type-image img {
+    height: 75px;
+    width: 75px;
+  }
+
+  .city-temperature-container h1 {
+    font-size: 35px;
+  }
+
+  .humudity-result p,
+  .wind-result p,
+  .uv-index-result p {
+    font-size: 20px !important;
+  }
+
+  .humitidy-text p,
+  .wind-text p,
+  .uv-index-text p,
+  .type-of-weather-container p {
+    font-size: 19px !important;
+  }
+
+  .hamburger-menu-icon {
+    display: block !important;
+  }
+}
+
+@media (max-width: 1024px) and (max-height: 768px) {
+  .information-card-1 {
+    height: 340px !important;
+    width: 450px !important;
+  }
+
+  .information-card-2 {
+    height: 220px !important;
+    width: 450px !important;
+  }
+}
+
+@media (max-width: 720px) and (max-height: 1080px) {
+  .information-card-2 {
+    margin-bottom: 15% !important;
+  }
+
+  .information-card-1 {
+    height: 450px;
+  }
+}
+
+@media (max-width: 600px) and (max-height: 960px) {
+  .weather-details-section-container .information-card-1 {
+    height: 440px !important;
+    width: 450px !important;
+  }
+
+  .information-card-2 {
+    height: 200px;
+    width: 450px !important;
+    margin-bottom: 7% !important;
+  }
+
+  .information-card-1-container {
+    height: 55% !important;
+  }
+
+  .information-card-2-container {
+    height: 45% !important;
+  }
+}
+
+@media (max-width: 480px) and (max-height: 850px) {
+  .weather-details-section-container .information-card-1 {
+    height: 400px !important;
+    width: 400px !important;
+  }
+
+  .weather-details-section-container .information-card-2 {
+    height: 180px !important;
+    width: 400px !important;
+    margin-bottom: 3% !important;
+  }
+
+  .hamburger-menu-container {
+    left: 15px;
+    bottom: 15px;
+    height: 45px !important;
+    width: 45px !important;
+    display: flex;
+  }
+
+  .city-name-container h1 {
+    font-size: 32px;
+  }
+  .city-temperature-container h1 {
+    font-size: 32px !important;
+  }
+}
+
+@media (max-width: 428px) and (max-height: 926px) {
+  .weather-details-section-container .information-card-1 {
+    height: 340px !important;
+    width: 340px !important;
+  }
+
+  .weather-details-section-container .information-card-2 {
+    height: 180px !important;
+    width: 340px !important;
+    margin-bottom: 5% !important;
+  }
+
+  .city-temperature-container h1 {
+    font-size: 30px !important;
+  }
+
+  .type-of-weather-container p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 17px !important;
+  }
+
+  .humudity-result p,
+  .wind-result p,
+  .uv-index-result p {
+    font-size: 17px !important;
+  }
+
+  .humitidy-text p,
+  .wind-text p,
+  .uv-index-text p {
+    font-size: 15px !important;
+  }
+}
+
+@media (max-width: 414px) and (max-height: 750px) {
+  .weather-details-section-container .information-card-1 {
+    height: 320px !important;
+    width: 320px !important;
+  }
+
+  .weather-details-section-container .information-card-2 {
+    height: 160px !important;
+    width: 320px !important;
+    margin-bottom: 5% !important;
+  }
+
+  .city-temperature-container h1 {
+    font-size: 30px !important;
+  }
+
+  .type-of-weather-container p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 17px !important;
+  }
+
+  .humudity-result p,
+  .wind-result p,
+  .uv-index-result p {
+    font-size: 17px !important;
+  }
+
+  .humitidy-text p,
+  .wind-text p,
+  .uv-index-text p {
+    font-size: 15px !important;
+  }
+}
+
+@media (max-width: 390px) and (max-height: 844px),
+  (max-width: 393px) and (max-height: 851px) {
+  .weather-details-section-container .information-card-1 {
+    height: 320px !important;
+    width: 320px !important;
+  }
+
+  .weather-details-section-container .information-card-2 {
+    height: 140px !important;
+    width: 320px !important;
+    margin-bottom: 5% !important;
+  }
+  .city-temperature-container h1 {
+    font-size: 30px !important;
+  }
+
+  .type-of-weather-container p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 17px !important;
+  }
+
+  .humudity-result p,
+  .wind-result p,
+  .uv-index-result p {
+    font-size: 17px !important;
+  }
+
+  .humitidy-text p,
+  .wind-text p,
+  .uv-index-text p {
+    font-size: 15px !important;
+  }
+
+  .hamburger-menu-container {
+    position: absolute;
+    left: 10px !important;
+    bottom: 5px !important;
+  }
+}
+
+@media (max-width: 375px) and (max-height: 640px),
+  (max-width: 375px) and (max-height: 667px) {
+  .weather-details-section-container .information-card-1 {
+    height: 290px !important;
+    width: 290px !important;
+  }
+
+  .weather-details-section-container .information-card-2 {
+    height: 140px !important;
+    width: 290px !important;
+    margin-bottom: 5% !important;
+  }
+
+  .hamburger-menu-container {
+    position: absolute;
+    left: 10px !important;
+    bottom: 5px !important;
+  }
+}
+
+@media (max-width: 320px) and (max-height: 640px) {
+  .weather-details-section-container .information-card-1 {
+    width: 280px !important;
+  }
+
+  .weather-details-section-container .information-card-2 {
+    width: 280px !important;
+  }
+}
+
+@media (max-width: 320px) and (max-height: 568px) {
+  .weather-details-section-container .information-card-1 {
+    width: 260px !important;
+    height: 260px !important;
+  }
+
+  .weather-details-section-container .information-card-2 {
+    width: 260px !important;
+    margin-bottom: 10% !important;
+  }
+
+  .hamburger-menu-container {
+    height: 40px !important;
+    width: 40px;
+  }
+}
+
+/*Header*/
+
+@media (max-width: 900px) and (max-height: 1600px) {
+  .search-container {
+    height: 55px !important;
+  }
+
+  /*
+  .information-card-1 {
+    height: 430px !important;
+  }
+
+  */
+}
+
+@media (max-width: 414px) and (max-height: 750px) {
+  .search-container {
+    height: 45px !important;
+  }
+}
+
+@media (max-width: 320px) and (max-height: 568px) {
+  .search-container {
+    height: 40px !important;
+  }
+}
