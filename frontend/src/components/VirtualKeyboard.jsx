@@ -46,7 +46,10 @@ const VirtualKeyboard = ({ value = "", onChange, onEnter }) => {
   }, [value]);
 
   return (
-    <div className="virtual-keyboard-container">
+    <div
+      className="virtual-keyboard-container"
+      data-testid="keyboard-container"
+    >
       <div className="simple-keyboard"></div>
     </div>
   );
