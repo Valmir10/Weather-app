@@ -18,9 +18,22 @@ cd weather-app
 Open a terminal in the project root and run:
 
 cd backend
+npm install
 node server.js
 
 http://localhost:4000
+
+
+
+3. Start the frontend
+
+Open another terminal in the project root and run:
+
+cd frontend
+npm install
+npm run dev
+
+http://localhost:5173/
 
 
 🧪 Running Tests
